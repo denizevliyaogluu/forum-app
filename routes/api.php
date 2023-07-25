@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::get('/feeds',[FeedController::class,'index'])->middleware('auth:sanctum');
 Route::post('/feed/store',[FeedController::class,'store'])->middleware('auth:sanctum');
 Route::post('/feed/like/{feed_id}',[FeedController::class,'likePost'])->middleware('auth:sanctum');
+
 
 Route::get('/test',function(){
     return response([
